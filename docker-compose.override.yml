@@ -1,0 +1,21 @@
+version: '3.4'
+
+services:
+  sqlserver:
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=Ankara1.
+    volumes:
+      - sqlservicevolume:/var/opt/mssql
+    ports:
+      - "1433:1433"
+  microservice1.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+    ports:
+      - "5100-5200:80"
+  microservice2.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+    ports:
+      - "5201-5300:80"

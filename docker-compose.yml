@@ -1,0 +1,23 @@
+version: '3.4'
+
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-preview-ubuntu-22.04
+  microservice1.api:
+    # image: microservice1api-image
+    image: erhangokceoglu/microservicedeneme1:1.0
+    container_name: microservice1-container
+    build:
+      context: .
+      dockerfile: MicroService1.API/Dockerfile
+  microservice2.api:
+    # image: microservice2api-image
+    image: erhangokceoglu/microservicedeneme2:1.0
+    container_name: microservice2-container
+    build:
+      context: .
+      dockerfile: MicroService2.API/Dockerfile
+volumes:
+  sqlservicevolume:
+      
+  
